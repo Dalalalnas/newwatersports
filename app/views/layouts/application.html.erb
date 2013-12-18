@@ -1,0 +1,74 @@
+<div id="container">
+	<div id="header">
+	 <title>Dalal's</title>
+
+		<h1>
+			Dalal's Water Sports <iframe scrolling="no" frameborder="0" style="overflow:hidden;border:0;margin:0;padding:0;width:91px;height:30px;" src="http://www.clocklink.com/html5embed.php?clock=008&timezone=Ireland_Dublin&color=blue&size=91"></iframe>
+			<div id="translator_7788"><noscript>Javascript is disable - <a href="http://www.webestools.com/">http://www.webestools.com/</a> - <a href="http://www.webestools.com/translator-buttons-web-page-translation-google-translate-website-widget-online-html-translator.html">Translation Buttons Generator</a></noscript></div><script type="text/javascript" src="http://services.webestools.com/translator/7788-3-yynynnynn.js"></script> </div>
+			 <%= stylesheet_link_tag  "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.8/themes/base /jquery-ui.css",  "application", :media => "all" %>
+		  <%= javascript_include_tag "application", "rails.validations" %>
+		   <%= csrf_meta_tags %>
+		</h1>
+	</div>
+	<div id="navigation">
+		<ul>
+			<li><a href="/" title="Back to the Home page"><b>HOME</b></a>  </li>
+            <li><%= link_to "About us", about_path%></li>
+            <li><%= mail_to "dalalalnasrallah@hotmail.com", "Contact us" %></li>
+			<li><%= link_to "Various Rides", rides_path %></li>
+			<li><%= link_to "New Users HERE", new_user_path %></li>
+
+
+
+			<li><%= link_to "Sign Out", signout_path %></li>
+
+ <div id="nav">
+    <ul>
+  
+	<% if !signed_in? %>
+		<li><%= link_to "Sign In", signin_path %></li>		
+	<% else %>
+	  <font color="white"><li>Signed in as <%= @current_user.fname %></li></font>
+
+		
+	<%end %>
+	
+<input type="Button"onClick="window.print()"value="Print this Page"/>
+<script src="http://www.clocklink.com/embed.js"></script><script type="text/javascript" language="JavaScript">obj=new Object;obj.clockfile="9001e-blue.swf";obj.TimeZone="Ireland_Dublin";obj.width=288;obj.height=18;obj.Target="2014,2,30,4,1,15";obj.Title="WinaJetSignupIn";obj.Message="sign%20up%20if%20you%20want%20to%20win!";obj.wmode="transparent";showClock(obj);</script>
+ 
+<embed src="http://www.4shared.com/embed/37938100/be0bd2d8" width="200" height="20" allowfullscreen="false" allowscriptaccess="always" type="application/x-shockwave-flash"></embed>
+
+
+	</div>
+	<div id="content-container1">
+		<div id="content-container2">
+			<div id="section-navigation">
+				<ul>
+
+				</ul>
+			</div>
+			<%= yield %>
+
+						
+			<% if flash %>
+    <% flash.each do |key, value| %>   
+       <div class="flash <%= key %>">
+		<%= value %>
+	</div>
+    <% end %>
+ <% end %>
+
+ 
+	
+			<div id="content">
+				
+		</div>
+			
+			
+			<div id="footer">
+				Copyright © Dalal's Water Sports, 2013
+			</div>
+			
+		</div>
+	</div>
+</div>

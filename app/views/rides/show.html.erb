@@ -1,0 +1,59 @@
+<center>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Ridename:</b>
+  <%= @ride.ridename %>
+</p>
+
+<p>
+  <b>Picture:</b>
+  <%= @ride.picture %>
+
+</p>
+
+<p>
+  <b>Video:</b>
+	<%= sanitize @ride.video, :tags => ['iframe']%>
+</p>
+
+
+<p>
+  <b>Type:</b>
+  <%= @ride.type_id %>
+</p>
+
+<p>
+  <b>Price:</b>
+  <%= @ride.price %>
+</p>
+  
+<h2> please leave a comment</h2>
+
+	<%= form_for([@ride, Post.new]) do |f| %>
+	<%= f.text_area :content, :rows => 3 %>
+	<div class = "actions">
+			<h5> I agree that this content isn't abusive  <input name="your_name" value="your_value" type="checkbox" ></h5>
+       	<%= f.submit "Post the comment" %> 
+		</div>
+	<%end%>
+
+	<% if @ride.posts.empty? %>
+		<h3> You are the first to comment </h3>
+	<% else %>
+		<h2> What other people felt about this ride</h2>
+		<div id = "posts">		
+		<% @ride.posts.reverse.each do |post| %>
+			<p><%= post.content %>
+			<p><%= post.user.fname %>			
+	    <%= link_to "destroy", [@ride, post], method: :delete, data: { confirm: 'Are you sure?'} %>
+				
+		</div>		   
+		<%end%>
+		
+	<%end%> 
+	
+
+<%= link_to 'Edit', edit_ride_path(@ride) %> |
+<%= link_to 'Back', rides_path %>
+</center>

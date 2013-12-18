@@ -1,0 +1,41 @@
+
+<h1>Listing rides</h1>
+
+<%= will_paginate @rides %>
+
+<table>
+  <tr>
+    <th>Ridename</th>
+    <th>Picture</th>
+    <th>Video</th>
+    <th>Price</th>
+    <th>Type</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+    <div id="search">
+	<%= render :partial => 'rides/search' %>
+</div>
+
+<% @rides.each do |ride| %>
+  <tr>
+    <td><%= ride.ridename %></td>
+    <td><%= image_tag(ride.picture, :size => "30x30") %></td>
+    <td><%= ride.video %></td>
+    <td><%= ride.price %></td>
+    <td><%= ride.type_id %></td>
+    <td><%= link_to 'Show', ride %></td>
+    <td><%= link_to 'Edit', edit_ride_path(ride) %></td>
+    <td><%= link_to 'Destroy', ride, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= button_to 'Buy This', new_order_path(oid: ride)%></td>
+
+ </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Ride', new_ride_path %>
+

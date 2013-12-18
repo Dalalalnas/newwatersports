@@ -1,0 +1,60 @@
+<h1> <FONT COLOR="#2E2EFE">Sign In</FONT> </h1>
+
+<%= form_tag sessions_path do %>
+    <table>   
+     <tr>  
+          <td><%= label_tag :fname %></td>
+            <td><%= text_field_tag :fname %>
+        </tr>
+        <tr>  
+          <td><%= label_tag :password %></td> 
+           <td><%= password_field_tag :password %>
+        </tr>   
+     <tr>  
+	    <td><%= submit_tag "Sign in" %></td>
+        </tr> 
+		
+<script type="text/javascript">
+ function DrawCaptcha()
+  {
+  var a = Math.ceil(Math.random() * 6)+ '';
+  var b = Math.ceil(Math.random() * 6)+ '';
+  var c = Math.ceil(Math.random() * 6)+ '';
+  var d = Math.ceil(Math.random() * 6)+ '';
+  var e = Math.ceil(Math.random() * 6)+ '';
+  var f = Math.ceil(Math.random() * 6)+ '';
+  var g = Math.ceil(Math.random() * 6)+ '';
+  var code = a + ' ' + b + ' ' + ' ' + c + ' ' + d + ' ' + e + ' '+ f ;
+  document.getElementById("txtCaptcha").value = code
+  }
+</script>
+ <script type="text/javascript">
+// Remove the spaces from the entered and generated code
+ function removeSpaces(string){
+  return string.split(' ').join('');
+ }
+</script>
+</head>
+<body onload="DrawCaptcha();">
+ <form name="value">
+ Enter Numbers As Shown to confirm you're not a ROBOT:
+<input type="text" id="txtCaptcha" style="background-image:url(images/cap.JPG); text-align:center; border:none; font-weight: bold; font-family:Modern" />
+ <input type="button" id="btnrefresh" value="Refresh" onclick="DrawCaptcha();" />
+ <input type="text"  oninput="check(this)" required  id="txtInput"/> 
+ </form>
+<script>
+function check(input) {
+  var cap =removeSpaces(document.getElementById('txtCaptcha').value);
+if (input.value != cap ) {
+  input.setCustomValidity("Error in code Please Check AND TYPE AGAIN!");
+  } else {
+  input.setCustomValidity('');
+  }
+  }
+ </script>
+
+          </table
+
+   
+<% end %>
+

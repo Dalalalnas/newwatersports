@@ -1,0 +1,50 @@
+<style type="text/css">
+
+	table {
+		width : 800;
+		margin : 30px auto;
+	}
+	
+	caption {
+		font-weight : bold;
+		font-size: 30pt;
+	}
+
+	table, td, th {
+		border : 1px solid #000;
+	}
+	
+	th {
+		background-color : #cccccc;
+	}
+	
+	td, th {
+		padding: 3px 5px;
+	}
+</style>
+
+<p id="notice"><%= notice %></p>
+
+<table>
+	<caption>Order Information</caption>
+	<thead>
+		<tr>
+			<th>Customer Name</th>
+			<th>Ride</th>
+			<th>Quantity</th>
+			<th>Price Per Unit</th>
+			<th>Total</th>
+			<th>Payment Method</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td><%= @user.fname + " " + @user.lname%></td>
+			<td><%= @ride.ridename %></td>
+			<td><%= @order.quantity %></td>
+			<td><%= @ride.price%></td>
+			<td><%= @ride.price * @order.quantity %></td>
+			<td><%= @order.payment %></td>
+		</tr>
+	</tbody>
+</table>

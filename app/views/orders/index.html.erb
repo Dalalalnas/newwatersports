@@ -1,0 +1,32 @@
+<h1>Listing orders</h1>
+<%= will_paginate @orders %>
+<h3>Customer Name: <%=user.fname + " " + user.lname%></h3>
+<table>
+  <tr>
+    <th>Quantity</th>
+    <th>Price</th>
+    <th>Payment</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @orders.each do |order| %>
+  <tr>
+    <td><%= order.quantity %></td>
+    <td><%= order.payment %></td>
+	
+    <td><%= link_to 'Show', order %></td>
+    <td><%= link_to 'Edit', edit_order_path(order) %></td>
+    <td><%= link_to 'Destroy', order, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+  <tr>
+  	<td colspan="5">
+  		
+  	</td>
+  </tr>
+</table>
+
+<br />
+

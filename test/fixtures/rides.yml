@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  ridename: MyString
+  picture: MyString
+  video: MyText
+  type_id: 1
+
+two:
+  ridename: MyString
+  picture: MyString
+  video: MyText
+  type_id: 1

@@ -1,0 +1,105 @@
+<%= form_for(@user, validate: true) do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :FirstName %><br />
+    <%= f.text_field :fname %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :LastName %><br />
+    <%= f.text_field :lname %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :password %><br />
+    <%= f.password_field :password %>*
+  </div>
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation %>*
+  </div>
+  
+
+
+  <div class="field">
+    <%= f.label :gender %><br />
+    <%= f.select :gender, ["Male","Female"] %> 
+  </div>
+  
+  <div class="field">
+    <%= f.label :country %><br /> 
+	 <%= f.select :country,  
+["Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Anguilla", "Antigua and Barbuda", "Argentina", "Armenia", "Aruba", "Australia", "Austria", "Azerbaijan",
+
+"Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bermuda", "Bhutan", "Bolivia", "Bosnia and Herzegovina", "Botswana", "Brazil", "Brunei Darussalam", "Bulgaria", "Burkina Faso", "Burundi",
+
+"Canada", "Cambodia", "Cameroon", "Cape Verde", "Cayman Islands", "Central African", "Republic Chad", "Chile", "China", "Colombia", "Comoros", "Cook Islands", "Costa Rica", "Cote d'ivoire", "Croatia", "Cuba", "Cyprus", "Czech Republic",
+
+"Democratic Republic of the Congo", "Denmark", "Djibouti", "Dominica", "Dominican Republic",
+
+"Ecuador", "Egypt", "El Salvador", "Equatorial Guinea", "Eritrea", "Estonia", "Ethiopia",
+
+"Faroe Islands", "Fiji", "Finland", "France", "French Guiana", "French Polynesia",
+
+"Gabon", "Gambia", "Georgia", "Germany", "Ghana", "Gibraltar", "Greece", "Greenland", "Grenada", "Guadeloupe", "Guam", "Guatemala", "Guinea", "Guinea-Bissau", "Guyana",
+
+"Haiti", "Honduras", "Hong Kong", "Hungary",
+
+"Iceland", "India", "Indonesia", "Iran", "Iraq", "Ireland", "Israel", "Italy",
+
+"Jamaica", "Japan", "Jersey", "Jordan","Kazakhstan", "Kenya", "Kuwait", "Kyrgyzstan",
+
+"Laos", "Latvia", "Lebanon", "Lesotho", "Liberia", "Libyan Arab Jamahiriya", "Liechtenstein", "Lithuania", "Luxembourg",
+
+"Macau", "Macedonia", "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", "Malta", "Martinique", "Mauritania", "Mauritius", "Mexico", "Micronesia", "Moldova", "Monaco", "Mongolia", "Montenegro", "Montserrat", "Morocco", "Mozambique",
+
+"Namibia", "Nepal", "Netherlands", "Netherlands Antilles", "New Caledonia", "New Zealand", "Nicaragua", "Niger", "Nigeria", "Norway",
+
+"Oman","Pakistan", "Palestinian Territory", "Panama", "Papua New Guinea", "Paraguay", "Peru", "Philippines", "Poland", "Portugal", "Puerto Rico",
+
+"Qatar","Republic of Korea", "Republic of the Congo", "Reunion Island", "Romania", "Row", "Russia", "Rwanda",
+
+"Saint Kitts and Nevis", "Saint Lucia", "Saint Pierre and Miquelon", "Saint Vincent and the Grenadines", "Samoa", "San Marino", "Saudi Arabia", "Senegal", "Serbia", "Seychelles", "Sierra Leone", "Singapore", "Slovakia", "Slovenia", "Somalia", "South Africa", "South Sudan", "Spain", "Sri Lanka", "Sudan", "Suriname", "Swaziland", "Sweden", "Switzerland", "Syria",
+
+"Taiwan", "Tajikistan", "Tanzania", "Thailand", "Timor-Leste", "Togo", "Tonga", "Trinidad and Tobago", "Tunisia", "Turkey", "Turkmenistan", "Turks and Caicos Islands",
+
+"Uganda", "Ukraine", "United Arab Emirates", "United Kingdom", "Uruguay", "USA", "Uzbekistan",
+
+"Vanuatu", "Venezuela", "Vietnam", "Virgin Islands",
+
+"Yemen", "Zambia","Zimbabwe"] %>
+
+  </div>
+ 
+
+ 
+    <div class="field">
+    <%= f.label :address %><br />
+    <%= f.text_field :address %>
+  </div>
+
+    <div class="field">
+    <%= f.label :dob %><br />
+    <%= f.text_field :dob, :id => :datepicker %>
+  </div>
+  
+    <button type="reset" value="Reset">Reset</button>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
